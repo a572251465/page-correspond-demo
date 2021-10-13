@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>共同的客户端</title>
+</head>
+<body>
+  <iframe src="client2.html" width='480' height='320'></iframe>
+  <ul>
+
+  </ul>
+  <script>
+    const ul = document.querySelector('ul')
+    const channel = new MessageChannel()
+    const iframe = document.querySelector('iframe')
+    iframe.addEventListener('load', iframeHandle, false)
+    function iframeHandle() {
+      iframe.contentWindow.postMessage('the iframe content', "*", [channel.port2])
+    }
+
+    channel.port1.onmessage = function(e) {
+      const li = document.createElement('li')
+      li.textContent = e.data
+      ul.appendChild(li)
+    }
+  </script>
+</body>
+</html>

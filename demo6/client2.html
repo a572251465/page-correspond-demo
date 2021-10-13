@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>客户端2</title>
+</head>
+<body>
+  <script>
+    const worker = new SharedWorker("./work.js")
+    let i = 0
+    setInterval(() => {
+      worker.port.postMessage(`${i ++} --我是2发送消息`)
+    }, 1000)
+    worker.port.onmessage = function(e) {
+      console.log(`我是客户端2：${e.data}`)
+    }
+  </script>
+</body>
+</html>

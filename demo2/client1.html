@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>客户端1</title>
+</head>
+<body>
+  <button id="btn">打开新页面</button>
+  <script>
+    const btn = document.querySelector('#btn')
+    btn.addEventListener('click', function() {
+      const opener = window.open(`http://localhost:9000/client2.html`)
+      setTimeout(() => {
+        opener.postMessage('我给打开页面发消息')
+      }, 1000)
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>客户端2</title>
+  <script>
+    const ws1 = new WebSocket('ws://localhost:3000')
+    ws1.onopen = function() {
+      console.log('客户端2连接成功')
+      ws1.send('我是客户端2的信息')
+    }
+    ws1.onmessage = function(message) {
+      console.log(`客户端2：${message.data}`)
+    }
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

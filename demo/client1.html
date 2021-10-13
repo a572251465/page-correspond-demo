@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>客户端1</title>
+  <script>
+    const ws1 = new WebSocket('ws://localhost:3000')
+    ws1.onopen = function() {
+      console.log('客户1打开成功')
+      ws1.send('我是客户端1的信息')
+    }
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

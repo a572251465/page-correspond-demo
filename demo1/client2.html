@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>客户端2</title>
+  <script>
+    let preInfo = null
+    const getInfo = () => {
+      const info = localStorage.getItem('page-info')
+      if (info && preInfo !== info) {
+        preInfo = info
+        console.log(`来自另一个页面的消息:${info}`)
+      }
+    }
+
+    setInterval(() => {
+      getInfo()
+    }, 50)
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
